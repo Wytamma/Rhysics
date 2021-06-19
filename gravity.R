@@ -84,7 +84,7 @@ setup <- function() {
   balls <- c()
   for (i in 1:number_of_balls) {
     xpos <- width * runif(1, 0, 1)
-    ypos <- height * runif(1, 0, 1)
+    ypos <- height * runif(1, .1, 1)
 
     balls <- c(balls,
       new(
@@ -101,7 +101,6 @@ setup <- function() {
 
 draw <- function() {
   createCanvas(40, 40, border = TRUE)
-  title('Rhysics')
   for (i in 1:length(balls)) {
     balls[[i]] <<- update(balls[[i]])
     balls[[i]] <<- checkEdges(balls[[i]])
