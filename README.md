@@ -4,8 +4,9 @@ An `R` based physics engine (what you'd expect)...
 
 ## Bounce 
 
-![](images/gravity.gif)
+![](images/bounce.gif)
 
 ## Gravity 
 
-![](images/bounce.gif)
+![](images/gravity.gif)
+
