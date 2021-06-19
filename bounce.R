@@ -46,4 +46,4 @@ draw <- function() {
   }
 }
 
-plots <- loop(number_of_frames = 100)
+loop(number_of_frames = 100)

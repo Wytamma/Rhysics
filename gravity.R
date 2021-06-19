@@ -1,6 +1,6 @@
 source('~/programming/Rhysics/Rhysics.R')
 
-#S4 Ball Class
+#S4 Mover Class
 setClass(
   "Mover",
   slots = list(
