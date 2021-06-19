@@ -1,3 +1,7 @@
 ![](images/Rhysics.png)
 
-An `R` based physics engine (what you'd expect)
+An `R` based physics engine (what you'd expect)...
+
+## Gravity 
+
+![](images/gravity.gif)
