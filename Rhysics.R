@@ -43,7 +43,7 @@ loop <- function(number_of_frames) {
 }
 
 
-setClass("Vector",
+createVector <- setClass("Vector",
          slots = list(x = 'numeric',
                       y = 'numeric'))
 
