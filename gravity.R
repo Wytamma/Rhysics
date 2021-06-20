@@ -80,9 +80,11 @@ setMethod("checkEdges", "Mover", function(self) {
 })
 
 number_of_balls <- 30
+width <- 40
+height <- 40
+
 setup <- function() {
   balls <- c()
-  createCanvas(40, 40, border = TRUE)
   for (i in 1:number_of_balls) {
     xpos <- width * runif(1, .05, .95)
     ypos <- height * runif(1, .1, 1)
@@ -101,7 +103,7 @@ setup <- function() {
 }
 
 draw <- function() {
-  createCanvas(40, 40, border = TRUE)
+  createCanvas(width, height, border = TRUE)
   for (i in 1:length(balls)) {
     balls[[i]] <<- update(balls[[i]])
     balls[[i]] <<- checkEdges(balls[[i]])
@@ -111,8 +113,8 @@ draw <- function() {
   }
 }
 
-loop(number_of_frames = 75)
+loop(number_of_frames = 90)
 
 # # Save
 # library(animation)
-# saveGIF(loop(number_of_frames = 100), movie.name = "gravity.gif", interval = .05)
+# saveGIF(loop(number_of_frames = 90), movie.name = "gravity.gif", interval = .05)
