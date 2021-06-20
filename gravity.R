@@ -1,7 +1,7 @@
 source('~/programming/Rhysics/Rhysics.R')
 
 #S4 Mover Class
-setClass(
+createMover <- setClass(
   "Mover",
   slots = list(
     position = "Vector",
@@ -82,17 +82,18 @@ setMethod("checkEdges", "Mover", function(self) {
 number_of_balls <- 30
 setup <- function() {
   balls <- c()
+  createCanvas(40, 40, border = TRUE)
   for (i in 1:number_of_balls) {
-    xpos <- width * runif(1, 0, 1)
+    xpos <- width * runif(1, .05, .95)
     ypos <- height * runif(1, .1, 1)
 
-    balls <- c(balls,
-      new(
-        "Mover",
-        position = new("Vector", x = xpos, y = ypos),
-        velocity = new("Vector", x = 0, y = 0),
-        acceleration = new("Vector", x = 0, y = 0),
-        mass = runif(1, 1, 3)
+    balls <- c(
+      balls,
+      createMover(
+        position = createVector(x = xpos, y = ypos),
+        velocity = createVector(x = 0, y = 0),
+        acceleration = createVector(x = 0, y = 0),
+        mass = runif(1, 0.1, 2.5)
       )
     )
   }
@@ -104,13 +105,13 @@ draw <- function() {
   for (i in 1:length(balls)) {
     balls[[i]] <<- update(balls[[i]])
     balls[[i]] <<- checkEdges(balls[[i]])
-    gravity <-  new("Vector", x = 0, y = -0.1 * balls[[i]]@mass)
+    gravity <-  createVector(x = 0, y = -0.1 * balls[[i]]@mass)
     balls[[i]] <<- applyForce(balls[[i]], gravity)
     plot(balls[[i]])
   }
 }
 
-loop(number_of_frames = 100)
+loop(number_of_frames = 75)
 
 # # Save
 # library(animation)
